@@ -1,9 +1,112 @@
-import React from 'react'
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { styles } from "../utils/styles";
+import EarthCanvas from "./canvas/Earth";
 
 const Contact = () => {
-  return (
-    <div>Contact</div>
-  )
-}
+  const formRef = useRef();
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    emailjs
+      .send(
+        "service_qnvnjnj",
+        "template_5o7zrip",
+        {
+          from_name: form.name,
+          to_name: "Rohit",
+          from_email: form.email,
+          to_email: "rohitwebdev007@gmail.com",
+          message: form.message,
+        },
+        "x5UZAPTcen2A83SDh"
+      )
 
-export default Contact
+      .then(
+        (result) => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+          alert("Something went wrong.");
+        }
+      );
+  };
+
+  return (
+    <div className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+      <div className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
+        <p className={styles.sectionSubText}>Get in touch</p>
+        <h1 className={styles.sectionHeadText}>Contact me</h1>
+        <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+          <label htmlFor="" className="flex flex-col">
+            <span className="text-white mb-2 px-[2px] font-medium">
+              Your Name
+            </span>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="What's your name?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+            />
+          </label>
+          <label htmlFor="" className="flex flex-col">
+            <span className="text-white mb-2 px-[2px] font-medium">
+              Your Email
+            </span>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="What's your email?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+            />
+          </label>
+          <label htmlFor="" className="flex flex-col">
+            <span className="text-white mb-2 px-[2px] font-medium">
+              Your Message
+            </span>
+            <textarea
+              rows="10"
+              type="text"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="What do you want to say?"
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+            />
+          </label>
+          <button className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl">
+            Send
+          </button>
+        </form>
+      </div>
+      <div className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
+        <EarthCanvas />
+      </div>
+    </div>
+  );
+};
+
+export default Contact;

@@ -117,10 +117,35 @@
   background-image: linear-gradient(to bottom, #4e47b4, #141a31, #050816);
   min-height: 400vh;
 }
-button{
-  cursor: pointer;
+/*
+canvas{
+  height: 320px!important;
+  width: 310px!important;
+}
+@media all and (min-width: 992px) {
+  .list {
+    padding-right: 6px!important;
+    padding-left: 6px!important;
+  }
+  canvas{
+    height: 620px!important;
+    width: 620px!important;
+  }
 }
 
+@media all and (min-width: 678px) {
+  .list {
+    padding-right: 6px!important;
+    padding-left: 6px!important;
+  }
+  canvas{
+    height: 450px!important;
+    width: 450px!important;
+  }
+}
+.feedback{
+  margin-left: 1px!important;
+} */
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;

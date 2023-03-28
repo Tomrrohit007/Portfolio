@@ -1,6 +1,5 @@
-import Earth from "./components/canvas/Earth";
 import Tech from "./components/Tech";
-import Stars from "./components/canvas/Stars";
+import StarsCanvas from "./components/canvas/Stars";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -13,8 +12,8 @@ import "./index.css";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <div className="relative z-0 hero-cont px-7 md:px-20">
+      {/* <Navbar /> */}
+      <div className="relative z-0 hero-cont px-12 md:px-[60px] lg:px-[90px] pb-9">
         <Hero />
         <About />
         <Tech/>
@@ -22,7 +21,7 @@ function App() {
         <Feedbacks />
         <div className="relative z-0">
           <Contact />
-          <Stars />
+          <StarsCanvas />
         </div>
       </div>
     </BrowserRouter>

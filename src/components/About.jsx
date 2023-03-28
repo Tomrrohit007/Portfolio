@@ -113,11 +113,11 @@ const services = [
 
 const About = () => {
   return (
-    <m.div
-    className={`about-cont`}>
+    <m.section
+    className={`about-cont mt-10 md:mt-5`}>
       <m.div>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview</h2>
+        <h1 className={styles.sectionHeadText}>Overview</h1>
       </m.div>
       <m.p
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -126,7 +126,7 @@ const About = () => {
         sure you will be convinced once you will hire me. I am an experienced
         full-stack web developer. I have worked with multiple technologies to
         build websites and web applications. My skills include Typescript, React
-        js, Next js, Framer-Motion, Tailwind CSS, Chakra-UI, Node js, express,
+        js, Framer Motion, Tailwind CSS, Chakra-UI, Node js, express, ThreeJs, 
         MongoDB, My-SQL, Python.
       </m.p>
       <ul className="mt-20 flex flex-wrap gap-14 justify-center lg:justify-start ">
@@ -134,7 +134,7 @@ const About = () => {
           return <ServiceCard key={each.title} {...each} />;
         })}
       </ul>
-    </m.div>
+    </m.section>
   );
 };
 

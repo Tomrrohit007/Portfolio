@@ -1,8 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
-import { navLinks } from "../utils/constant";
-import { logo, menu, close } from "../assets";
+import { logo } from "../assets";
+
+
+const navLinks = [
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "work",
+    title: "Work",
+  },
+  {
+    id: "contact",
+    title: "Contact",
+  },
+];
+
 
 const Navbar = () => {
   const [active, setActive] = useState("");
