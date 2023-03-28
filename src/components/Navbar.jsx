@@ -52,7 +52,7 @@ const Navbar = () => {
                 active === each.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
-              to={`${each.id}`}
+              to={`#${each.id}`}
             >
             {each.title}
             </Link>

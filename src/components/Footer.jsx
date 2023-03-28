@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-tertiary text-gray-600 body-font rounded-t-2xl rounded-b-[0px] mt-7">
       <div className="container py-6 items-center flex flex-col md:flex-row justify-between px-4 lg:px-14">
-        <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 leading-7 sm:border-gray-200 sm:py-4 sm:mt-0 mt-4">
+        <p className="text-md text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 leading-7 sm:border-gray-200 sm:py-4 sm:mt-0 mt-4">
           © {year} Rohit Tomar
         </p>
         <div className="flex flex-col gap-2 items-center">

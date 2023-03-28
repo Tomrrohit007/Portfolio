@@ -130,7 +130,7 @@ const ProjectCard = ({
 
 const Works = () => {
   return (
-    <section className="mt-[80px]">
+    <section className="mt-[80px]" id="work">
       <div className="">
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects.</h2>

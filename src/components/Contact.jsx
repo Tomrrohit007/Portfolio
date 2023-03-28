@@ -87,7 +87,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+    <section id="contact" className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <div className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
         <p className={styles.sectionSubText}>Get in touch</p>
         <h1 className={styles.sectionHeadText}>Contact me</h1>

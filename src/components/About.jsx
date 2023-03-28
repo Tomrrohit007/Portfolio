@@ -115,6 +115,7 @@ const About = () => {
   return (
   
     <m.section
+    id="about"
     className={`about-cont mt-10 md:mt-5`}>
       <m.div>
         <p className={styles.sectionSubText}>Introduction</p>
