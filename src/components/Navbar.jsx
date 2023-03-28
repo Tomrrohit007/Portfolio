@@ -6,6 +6,10 @@ import { logo } from "../assets";
 
 const navLinks = [
   {
+    id:"/",
+    title:"Home"
+  },
+  {
     id: "about",
     title: "About",
   },
@@ -42,15 +46,16 @@ const Navbar = () => {
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((each) => (
-            <li
+            <Link
               key={each.id}
               className={`${
                 active === each.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
+              to={`${each.id}`}
             >
-              <a href={`#${each.id}`}>{each.title}</a>
-            </li>
+            {each.title}
+            </Link>
           ))}
         </ul>
       </div>

@@ -98,11 +98,11 @@ const mongoDb = () => {
 
 const services = [
   {
-    title: "Frontend Developer",
+    title: "Frontend Developement",
     icon: reactIcon(),
   },
   {
-    title: "Backend Developer",
+    title: "Backend Development",
     icon: nodeIcon(),
   },
   {
@@ -113,6 +113,7 @@ const services = [
 
 const About = () => {
   return (
+  
     <m.section
     className={`about-cont mt-10 md:mt-5`}>
       <m.div>
@@ -135,6 +136,7 @@ const About = () => {
         })}
       </ul>
     </m.section>
+    
   );
 };
 

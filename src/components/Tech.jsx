@@ -17,6 +17,7 @@ import {
   threejs,
   framer
 } from "../assets/index";
+import { styles } from "../utils/styles";
 
 const technologies = [
   {
@@ -80,8 +81,6 @@ const technologies = [
 const Tech = () => {
   return (
     <div className="mt-[70px]">
-      <h1 className=" text-[20px] md:text-[40px] lg:text-[60px] font-extrabold text-white ">Technologies</h1>
-      
       <div className=" mt-6 border-white flex flex-row flex-wrap justify-center gap-10">
         {technologies.map((technology) => (
           <div className="w-28 h-28 cursor-pointer" key={technology.name}>

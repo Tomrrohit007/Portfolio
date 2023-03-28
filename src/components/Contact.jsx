@@ -1,7 +1,10 @@
 import { useState, useRef } from "react";
+import "../index.css";
 import emailjs from "@emailjs/browser";
 import { styles } from "../utils/styles";
 import EarthCanvas from "./canvas/Earth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const formRef = useRef();
@@ -11,6 +14,7 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -18,41 +22,72 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    emailjs
-      .send(
-        "service_qnvnjnj",
-        "template_5o7zrip",
-        {
-          from_name: form.name,
-          to_name: "Rohit",
-          from_email: form.email,
-          to_email: "rohitwebdev007@gmail.com",
-          message: form.message,
-        },
-        "x5UZAPTcen2A83SDh"
-      )
+    if (form.name === "" || form.email === "" || form.message === "") {
+      setLoading(false);
+      toast.warning("Please fill all the field!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: false,
+        theme: "dark",
+      });
+    } else {
+      emailjs
+        .send(
+          "service_qnvnjnj",
+          "template_5o7zrip",
+          {
+            from_name: form.name,
+            to_name: "Rohit",
+            from_email: form.email,
+            to_email: "rohitwebdev007@gmail.com",
+            message: form.message,
+          },
+          "x5UZAPTcen2A83SDh"
+        )
 
-      .then(
-        (result) => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible");
+        .then(
+          (result) => {
+            setLoading(false);
+            toast.success("Thank you. I will reach out to you soon!", {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: false,
+              theme: "dark",
+            });
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error);
-          alert("Something went wrong.");
-        }
-      );
+            setForm({
+              name: "",
+              email: "",
+              message: "",
+            });
+          },
+          (error) => {
+            setLoading(false);
+            toast.success("Something went wrong!", {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: false,
+              theme: "dark",
+            });
+          }
+        );
+    }
   };
 
   return (
-    <div className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+    <section className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <div className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
         <p className={styles.sectionSubText}>Get in touch</p>
         <h1 className={styles.sectionHeadText}>Contact me</h1>
@@ -97,15 +132,16 @@ const Contact = () => {
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
-          <button className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl">
-            Send
+          <button className="bg-tertiary py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl">
+            {loading ? "Sending" : "Send"}
           </button>
+          <ToastContainer />
         </form>
       </div>
       <div className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
         <EarthCanvas />
       </div>
-    </div>
+    </section>
   );
 };
 
