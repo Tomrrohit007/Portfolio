@@ -100,6 +100,11 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
+.gradient{
+  background-image: radial-gradient(#11093f, #050816);
+}
+
+
 .pink-text-gradient {
   background: #ec008c; /* fallback for old browsers */
   background: -webkit-linear-gradient(

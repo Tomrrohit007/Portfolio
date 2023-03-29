@@ -1,8 +1,11 @@
 import { styles } from "../utils/styles";
 import { motion as m } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import "../index.css";
 import { Link } from "react-router-dom";
+import { textVariant } from "../utils/motion";
+import "../index.css";
+
+
 const Hero = () => {
   return (
     <section id="/" className="flex flex-col md:flex-row h-[100vh] justify-center md:items-center gap-[100px] md:h-[80vh] lg:h-screen ]">
@@ -52,7 +55,7 @@ const Hero = () => {
             },
           }}
           src="../../moon.png"
-          className="moon flex w-[280px] md:w-[360px] lg:w-[500px] aspect-1 m-auto top-0 bottom-0 left-0 right-0 self-center"
+          className="moon flex w-[280px] md:w-[300px] lg:w-[440px] aspect-1 m-auto top-0 bottom-0 left-0 right-0 self-center"
           alt="moon"
         />
       </div>

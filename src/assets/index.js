@@ -6,6 +6,8 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import Rlogo from "./Rlogo.png"
+import logo1 from "./logo1.png"
 
 import framer from "./tech/framer.svg"
 import css from "./tech/css.png";
@@ -61,4 +63,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  Rlogo,
+  logo1
 };
