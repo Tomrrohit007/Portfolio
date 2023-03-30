@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
-import "../index.css";
 import emailjs from "@emailjs/browser";
 import { styles } from "../utils/styles";
 import EarthCanvas from "./canvas/Earth";
 import { ToastContainer, toast } from "react-toastify";
+import { motion as m } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+import "../index.css";
+
 
 const Contact = () => {
   const formRef = useRef();
@@ -87,8 +89,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      <div className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
+    <section
+      id="contact"
+      className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden"
+    >
+      <m.div
+        viewport={{ once: true }}
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          type: "tween",
+          delay: 0.5,
+          duration: 0.3,
+        }}
+        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+      >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h1 className={styles.sectionHeadText}>Contact me</h1>
         <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
@@ -96,7 +113,8 @@ const Contact = () => {
             <span className="text-white mb-2 px-[2px] font-medium">
               Your Name
             </span>
-            <input
+            <m.input
+              whileFocus={{ backgroundColor: "#110124" }}
               type="text"
               name="name"
               value={form.name}
@@ -109,7 +127,8 @@ const Contact = () => {
             <span className="text-white mb-2 px-[2px] font-medium">
               Your Email
             </span>
-            <input
+            <m.input
+              whileFocus={{ backgroundColor: "#110124" }}
               type="email"
               name="email"
               value={form.email}
@@ -122,7 +141,8 @@ const Contact = () => {
             <span className="text-white mb-2 px-[2px] font-medium">
               Your Message
             </span>
-            <textarea
+            <m.textarea
+              whileFocus={{ backgroundColor: "#110124" }}
               rows="10"
               type="text"
               name="message"
@@ -132,15 +152,31 @@ const Contact = () => {
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
-          <button className="bg-tertiary py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl">
+          <m.button
+            whileHover={{ scale: 1.02, backgroundColor: "#0d011f" }}
+            whileTap={{ scale: 1.1, backgroundColor:"#0d011f"}}
+            className={`${loading?"bg-[#0d011f]":'bg-tertiary'} py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
+          >
             {loading ? "Sending" : "Send"}
-          </button>
+          </m.button>
           <ToastContainer />
         </form>
-      </div>
-      <div className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
+      </m.div>
+      <m.div
+        viewport={{ once: true }}
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          type: "tween",
+          delay: 0.5,
+          duration: 0.3,
+        }}
+        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+      >
         <EarthCanvas />
-      </div>
+      </m.div>
     </section>
   );
 };

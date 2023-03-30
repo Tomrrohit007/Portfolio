@@ -1,5 +1,4 @@
 import { motion as m } from "framer-motion";
-import ServiceCard from "./ServiceCard";
 import "../index.css";
 
 import { styles } from "../utils/styles";
@@ -96,6 +95,54 @@ const mongoDb = () => {
   );
 };
 
+
+
+const FadeInVariants = (i=4) => {
+  return {
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        mass: 0.3,
+        damping: 12,
+        delay: 0.12 * i,
+        duration: 0.2,
+      },
+    },
+  };
+};
+
+const ServiceCard = ({ title, icon, i }) => {
+  return (
+    <m.div
+    whileHover={{ translateY: -10}}
+      variants={FadeInVariants(i+4)}
+      whileInView="animate"
+      viewport={{once:true}}
+      initial="hidden"
+      className="xs:w-[250px] w-full max-w-[400px] lg:w-[24vw] rounded-lg"
+    >
+      <m.div
+        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+      >
+        <div
+          options={{ max: 45, scale: 1, speed: 450 }}
+          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+        >
+          {icon}
+          <h3 className="text-white text-[20px] font-bold text-center">
+            {title}
+          </h3>
+        </div>
+      </m.div>
+    </m.div>
+  );
+};
 const services = [
   {
     title: "Frontend Developement",
@@ -113,31 +160,41 @@ const services = [
 
 const About = () => {
   return (
-  
-    <m.section
-    id="about"
-    className={`about-cont mt-10 md:mt-5`}>
-      <m.div>
+    <m.section id="about" className={`about-cont mt-10 md:mt-5`}>
+      <m.div
+      variants={FadeInVariants()}
+      whileInView="animate"
+      viewport={{once:true}}
+      initial="hidden"
+      >
         <p className={styles.sectionSubText}>Introduction</p>
         <h1 className={styles.sectionHeadText}>Overview</h1>
       </m.div>
-      <m.p
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-      >
+      <m.p 
+      variants={FadeInVariants()}
+      whileInView="animate"
+      viewport={{once:true}}
+      initial="hidden"
+      className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">
         Quality is not just a word for me, but it really belongs to me. I am
         sure you will be convinced once you will hire me. I am an experienced
         full-stack web developer. I have worked with multiple technologies to
         build websites and web applications. My skills include Typescript, React
-        js, Framer Motion, Tailwind CSS, Chakra-UI, Node js, express, ThreeJs, 
+        js, Framer Motion, Tailwind CSS, Chakra-UI, Node js, express, ThreeJs,
         MongoDB, My-SQL, Python.
       </m.p>
       <ul className="mt-20 flex flex-wrap gap-14 justify-center lg:justify-start ">
         {services.map((each, i) => {
-          return <ServiceCard key={each.title} {...each} />;
+          return (
+            <ServiceCard
+              i={i}
+              key={each.title}
+              {...each}
+            />
+          );
         })}
       </ul>
     </m.section>
-    
   );
 };
 

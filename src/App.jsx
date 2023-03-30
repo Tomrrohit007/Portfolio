@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="relative z-2 mt-10 hero-cont px-12 md:px-[60px] lg:px-[90px]">
+      <div className="relative mt-10 hero-cont px-12 md:px-[60px] lg:px-[90px]">
         <Hero />
         <About />
         <Tech/>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
-import { logo1, Rlogo, menu, close } from "../assets";
+import { logo1, menu, close } from "../assets";
 import { motion as m, useScroll, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -55,6 +55,7 @@ const navVariants = (delay) => {
     },
   };
 };
+
 const variants = {
   visible: { y: 0, opacity: 1 },
   hidden: { y: "-90px", opacity: 0.4 },
@@ -77,6 +78,7 @@ const Navbar = () => {
       setHidden(false);
     } else if (scrollY?.current > 70 && scrollY?.current > scrollY?.prev) {
       setHidden(true);
+      setToggle((false))
     }
   }
 
@@ -131,13 +133,9 @@ const Navbar = () => {
             {toggle && (
               <m.div
                 initial={{
-                  height: 0,
-                  y:0,
                   opacity: 0,
                 }}
                 animate={{
-                  height: "100vh",
-                  y:0,
                   opacity: 1,
                   transition: {
                     duration: 0.4,
@@ -151,17 +149,17 @@ const Navbar = () => {
                   opacity: 0,
                   transition: {
                     duration: 0.3,
-                    delay:0.8,
+                    delay:0.6,
                     type: "spring",
                     ease: "easeInOut",
                   },
                 }}
-                className={`gradient absolute w-screen h-screen mx-[-24px] flex justify-center items-center`}
+                className={`gradient absolute w-screen h-[100vh] mx-[-24px] flex justify-center items-center rounded-2xl`}
               >
-                <ul className="list-none flex flex-col justify-center h-screen items-center mt-[240px] gap-5 underline leading-1">
+                <ul className="list-none flex flex-col h-full justify-center items-center mt-[340px] gap-5 underline rounded-2xl leading-1">
                   {navLinks.map((each, i) => (
                     <m.a
-                      variants={navVariants((i + 1) * 0.2)}
+                      variants={navVariants((i + 1) * 0.15)}
                       exit="exit"
                       animate="animate"
                       initial="hidden"
