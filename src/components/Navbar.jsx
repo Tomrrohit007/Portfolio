@@ -149,20 +149,15 @@ const Navbar = () => {
                   opacity: 0,
                   transition: {
                     duration: 0.3,
-                    delay:0.6,
                     type: "spring",
                     ease: "easeInOut",
                   },
                 }}
                 className={`gradient absolute w-screen h-[100vh] mx-[-24px] flex justify-center items-center rounded-2xl`}
               >
-                <ul className="list-none flex flex-col h-full justify-center items-center mt-[340px] gap-5 underline rounded-2xl leading-1">
+                <ul className="list-none flex flex-col h-full justify-center items-center mt-[340px] gap-5 rounded-2xl leading-1">
                   {navLinks.map((each, i) => (
-                    <m.a
-                      variants={navVariants((i + 1) * 0.15)}
-                      exit="exit"
-                      animate="animate"
-                      initial="hidden"
+                    <a
                       key={each.id}
                       className={`${
                         active === each.title ? "text-white" : "text-secondary"
@@ -175,7 +170,7 @@ const Navbar = () => {
                       to
                     >
                       {each.title}
-                    </m.a>
+                    </a>
                   ))}
                 </ul>
               </m.div>
