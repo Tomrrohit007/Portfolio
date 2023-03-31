@@ -7,7 +7,6 @@ import { motion as m } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 import "../index.css";
 
-
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -89,11 +88,9 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden"
-    >
+    <section className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <m.div
+        id="contact"
         viewport={{ once: true }}
         initial={{
           opacity: 0,
@@ -154,8 +151,10 @@ const Contact = () => {
           </label>
           <m.button
             whileHover={{ scale: 1.02, backgroundColor: "#0d011f" }}
-            whileTap={{ scale: 1.1, backgroundColor:"#0d011f"}}
-            className={`${loading?"bg-[#0d011f]":'bg-tertiary'} py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
+            whileTap={{ scale: 1.1, backgroundColor: "#0d011f" }}
+            className={`${
+              loading ? "bg-[#0d011f]" : "bg-tertiary"
+            } py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
           >
             {loading ? "Sending" : "Send"}
           </m.button>
