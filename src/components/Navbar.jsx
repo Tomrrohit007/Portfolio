@@ -4,6 +4,7 @@ import { styles } from "../utils/styles";
 import { logo1, menu, close } from "../assets";
 import { motion as m, useScroll, AnimatePresence } from "framer-motion";
 
+
 const navLinks = [
   {
     id: "/",

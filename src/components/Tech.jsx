@@ -17,7 +17,6 @@ import {
   threejs,
   framer
 } from "../assets/index";
-import { styles } from "../utils/styles";
 
 const technologies = [
   {
