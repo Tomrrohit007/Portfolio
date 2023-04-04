@@ -2,8 +2,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
 import { logo1, menu, close } from "../assets";
-import { motion as m, useScroll, AnimatePresence } from "framer-motion";
-
+import {
+  motion as m,
+  useScroll,
+  AnimatePresence,
+  useMotionValueEvent,
+} from "framer-motion";
 
 const navLinks = [
   {
@@ -51,7 +55,7 @@ const navVariants = (delay) => {
         ease: "easeInOut",
         mass: 0.4,
         damping: 13,
-        delay:delay/2
+        delay: delay / 2,
       },
     },
   };
@@ -75,17 +79,15 @@ const Navbar = () => {
   };
 
   function update() {
-    if (scrollY?.current < scrollY?.prev) {
+    if (scrollY.get() < scrollY.getPrevious()) {
       setHidden(false);
-    } else if (scrollY?.current > 70 && scrollY?.current > scrollY?.prev) {
+    } else if (scrollY.get() > 70 && scrollY.get() > scrollY.getPrevious()) {
       setHidden(true);
-      setToggle((false))
+      setToggle(false);
     }
   }
 
-  useEffect(() => {
-    return scrollY.onChange(() => update());
-  }, []);
+  useMotionValueEvent(scrollY, "change", () => update());
 
   return (
     <m.nav
