@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from "../utils/styles";
 import EarthCanvas from "./canvas/Earth";
@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "../index.css";
 
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -87,6 +86,7 @@ const Contact = () => {
     }
   };
 
+  
   return (
     <section className="`mt-[50px] flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <m.div

@@ -1,8 +1,8 @@
 import { styles } from "../utils/styles";
 import { motion as m } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { Link } from "react-router-dom";
 import "../index.css";
+import { moon, line } from "../assets";
 
 const variants = {
   hidden: {
@@ -57,7 +57,7 @@ const Hero = () => {
         >
           <img
             className="w-[10px] h-[4px] rounded-sm self-center lg:h-[8px] lg:w-[40px]"
-            src="../../line.png"
+            src={line}
           />
           What I Do?
         </m.p>
@@ -114,7 +114,7 @@ const Hero = () => {
               ease: "easeInOut",
             },
           }}
-          src="../../moon.png"
+          src={moon}
           className="moon flex w-[280px] md:w-[300px] lg:w-[440px] aspect-1 m-auto top-0 bottom-0 left-0 right-0 self-center"
           alt="moon"
         />

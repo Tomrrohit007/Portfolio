@@ -1,4 +1,3 @@
-import React from "react";
 import { styles } from "../utils/styles";
 import { motion as m } from "framer-motion";
 import "../index.css";
@@ -22,7 +21,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "After Rohit optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "After Rohit optimized our website, our traffic increased by 50%. We can't thank him enough!",
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",

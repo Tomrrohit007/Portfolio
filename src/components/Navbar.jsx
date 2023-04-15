@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
-import { logo1, menu, close } from "../assets";
+import { logo1 } from "../assets/index";
 import {
   motion as m,
   useScroll,
-  AnimatePresence,
   useMotionValueEvent,
 } from "framer-motion";
 
@@ -28,39 +27,6 @@ const navLinks = [
   },
 ];
 
-const navVariants = (delay) => {
-  return {
-    hidden: {
-      y: "-100vh",
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "tween",
-        ease: "easeInOut",
-        duration: 0.2,
-        mass: 0.4,
-        damping: 13,
-        delay,
-      },
-    },
-    exit: {
-      y: "-100vh",
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeInOut",
-        mass: 0.4,
-        damping: 13,
-        delay: delay / 2,
-      },
-    },
-  };
-};
-
 const variants = {
   visible: { y: 0, opacity: 1 },
   hidden: { y: "-90px", opacity: 0.4 },
@@ -72,6 +38,9 @@ const Navbar = () => {
   const { scrollY } = useScroll();
 
   const [hidden, setHidden] = useState(false);
+  const toggleBar = () => {
+    setToggle((prev) => !prev);
+  };
 
   const toTop = () => {
     setActive("Home");
@@ -89,6 +58,35 @@ const Navbar = () => {
 
   useMotionValueEvent(scrollY, "change", () => update());
 
+  const mobileNav = () => {
+    return (
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 0.6,
+        }}
+        className={`mobile-ham`}
+        aria-expanded={toggle.toString()}
+      >
+        <ul className="nav-item-list list-none w-screen h-screen flex justify-center gap-8 flex-col items-center ">
+          {navLinks.map((nav, index) => (
+            <li
+              className={`font-poppins select-none font-semibold cursor-pointer hover:text-[#bee5f1] text-[1rem] text-white ${
+                navLinks.length - 1 === index ? "mr-0" : "mb-10"
+              }`}
+              key={nav.id}
+            >
+              <button onClick={setToggle}>
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </m.div>
+    );
+  };
+
   return (
     <m.nav
       variants={variants}
@@ -103,7 +101,7 @@ const Navbar = () => {
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
     >
       <div className="w-full flex justify-between items-center max-w-7x1 mx-auto h-[40px] lg:h-[50px]">
-        <Link to="/" className="flex items-center gap-2 z-20" onClick={toTop}>
+        <Link to="/" className="flex items-center gap-2 z-20 " onClick={toTop}>
           <img src={logo1} alt="logo" className="w-12 h-12 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Rohit &nbsp;| <span className="sm:block hidden">&nbsp;Tomar</span>
@@ -123,62 +121,26 @@ const Navbar = () => {
             </a>
           ))}
         </ul>
-        <div className=" md:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className={`object-contain cursor-pointer z-20 p-3 ${
-              toggle && "bg-[#00041b] rounded-full"
-            }`}
-            onClick={() => setToggle((prev) => !prev)}
-          />
-          <AnimatePresence>
-            {toggle && (
-              <m.div
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    duration: 0.4,
-                    type: "spring",
-                    ease: "easeInOut",
-                    when: "beforeChildren",
-                  },
-                }}
-                exit={{
-                  height: 0,
-                  opacity: 0,
-                  transition: {
-                    duration: 0.3,
-                    type: "spring",
-                    ease: "easeInOut",
-                  },
-                }}
-                className={`gradient absolute w-screen h-[100vh] mx-[-24px] flex justify-center items-center rounded-2xl`}
-              >
-                <ul className="list-none flex flex-col h-full justify-center items-center mt-[340px] gap-5 rounded-2xl leading-1">
-                  {navLinks.map((each, i) => (
-                    <a
-                      key={each.id}
-                      className={`${
-                        active === each.title ? "text-white" : "text-secondary"
-                      } hover:text-white text-[18px] font-medium cursor-pointer`}
-                      onClick={() => {
-                        setToggle((prev) => !prev);
-                        setActive(each.title);
-                      }}
-                      href={`#${each.id}`}
-                      to
-                    >
-                      {each.title}
-                    </a>
-                  ))}
-                </ul>
-              </m.div>
-            )}
-          </AnimatePresence>
+        <div className=" md:hidden flex flex-1 justify-end items-center flex-grow-1">
+          <svg
+            className="button-three"
+            aria-controls="primary-navigation"
+            aria-expanded={toggle.toString()}
+            onClick={toggleBar}
+            stroke="var(--button-color)"
+            fill="none"
+            viewBox="-25 -40 180 180"
+            width="60"
+          >
+            <path
+              className="line"
+              strokeWidth="20"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m 15 20 h 100 a 1 1 0 0 1 0 45 h -100 a 1 1 0 0 1 0 -60 h 55 a 1 1 0 0 1 1 1 v 140"
+            ></path>
+          </svg>
+          {mobileNav()}
         </div>
       </div>
     </m.nav>

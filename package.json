@@ -1,5 +1,5 @@
 {
-  "name": "Personal Portfolio",
+  "name": "personal_portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,10 +17,8 @@
     "postcss-nesting": "^11.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intersection-observer": "^9.4.3",
     "react-router-dom": "^6.8.1",
     "react-toastify": "^9.1.2",
-    "three": "^0.149.0",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

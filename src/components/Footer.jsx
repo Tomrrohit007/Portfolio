@@ -1,23 +1,6 @@
 import "../index.css";
 import { motion as m } from "framer-motion";
 
-const FadeInVariants = (i = 4) => {
-  return {
-    hidden: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        type: "spring",
-        mass: 0.3,
-        damping: 12,
-        delay: 0.18,
-        duration: 0.2,
-      },
-    },
-  };
-};
 
 function Footer() {
   const year = new Date().getFullYear();

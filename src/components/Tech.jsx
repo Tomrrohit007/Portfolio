@@ -1,6 +1,5 @@
-import React from "react";
+import BallCanvas from "./canvas/Ball"
 import {motion as m} from "framer-motion"
-import BallCanvas from "./canvas/Ball";
 import {
   javascript,
   typescript,
