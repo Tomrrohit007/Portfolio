@@ -154,7 +154,7 @@ const Contact = () => {
             whileTap={{ scale: 1.1, backgroundColor: "#0d011f" }}
             className={`${
               loading ? "bg-[#0d011f]" : "bg-tertiary"
-            } py-3 px-8 outline-none w-full md:w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
+            } py-3 px-8 outline-none w-full button text-white font-bold shadow-md shadow-primary rounded-xl`}
           >
             {loading ? "Sending" : "Send"}
           </m.button>

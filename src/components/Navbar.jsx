@@ -46,12 +46,12 @@ const Navbar = () => {
 
   useEffect(() => {
     history.scrollRestoration = "manual";
-    // const defaultUrl = "http://localhost:4173/";
-    // // 'https://webdevrohit.netlify.app/'
+    const defaultUrl = 'https://webdevrohit.netlify.app/';
 
-    // if (window.location.href !== defaultUrl) {
-    //   window.location.href = defaultUrl;
-    // }
+
+    if (window.location.href !== defaultUrl) {
+      window.location.href = defaultUrl;
+    }
   }, []);
 
   function update() {
