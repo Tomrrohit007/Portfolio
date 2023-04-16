@@ -1,8 +1,10 @@
 import { styles } from "../utils/styles";
 import { motion as m } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import moon from "/assets/moon.webp"
+import line from "/assets/line.webp"
 import "../index.css";
-import { moon, line } from "../assets";
+
 
 const variants = {
   hidden: {

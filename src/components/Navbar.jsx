@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
-import { logo1 } from "../assets/index";
+import logo1 from "/assets/logo1.webp"
+
 import { motion as m, useScroll, useMotionValueEvent } from "framer-motion";
 
 const navLinks = [
@@ -44,14 +45,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    history.scrollRestoration = 'manual';
-    const defaultUrl = 'http://localhost:5173/';
-    // 'https://webdevrohit.netlify.app/' 
+    history.scrollRestoration = "manual";
+    // const defaultUrl = "http://localhost:4173/";
+    // // 'https://webdevrohit.netlify.app/'
 
-
-    if (window.location.href !== defaultUrl) {
-      window.location.href = defaultUrl;
-    }
+    // if (window.location.href !== defaultUrl) {
+    //   window.location.href = defaultUrl;
+    // }
   }, []);
 
   function update() {

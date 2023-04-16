@@ -1,6 +1,8 @@
 import { styles } from "../utils/styles";
-import { github } from "../assets";
-import { carrent, jobit, tripguide } from "../assets";
+import github from "/assets/github.webp";
+import carrent from "/assets/carrent.webp";
+import jobit from "/assets/jobit.webp";
+import tripguide from "/assets/tripguide.webp";
 import { motion as m } from "framer-motion";
 
 const projects = [

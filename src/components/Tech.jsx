@@ -1,21 +1,19 @@
 import BallCanvas from "./canvas/Ball"
 import {motion as m} from "framer-motion"
-import {
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
-  threejs,
-  framer
-} from "../assets/index";
+import framer from "/assets/tech/framer.svg"
+import css from "/assets/tech/css.webp";
+import docker from "/assets/tech/docker.webp";
+import figma from "/assets/tech/figma.webp";
+import git from "/assets/tech/git.webp";
+import html from "/assets/tech/html.webp";
+import javascript from "/assets/tech/javascript.webp";
+import mongodb from "/assets/tech/mongodb.webp";
+import nodejs from "/assets/tech/nodejs.webp";
+import reactjs from "/assets/tech/reactjs.webp";
+import redux from "/assets/tech/redux.webp";
+import tailwind from "/assets/tech/tailwind.webp";
+import typescript from "/assets/tech/typescript.webp";
+import threejs from "/assets/tech/threejs.svg";
 
 const technologies = [
   {
