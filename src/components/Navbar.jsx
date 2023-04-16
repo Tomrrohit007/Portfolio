@@ -1,12 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../utils/styles";
 import { logo1 } from "../assets/index";
-import {
-  motion as m,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion as m, useScroll, useMotionValueEvent } from "framer-motion";
 
 const navLinks = [
   {
@@ -47,6 +43,17 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    history.scrollRestoration = 'manual';
+    const defaultUrl = 'http://localhost:5173/';
+    // 'https://webdevrohit.netlify.app/' 
+
+
+    if (window.location.href !== defaultUrl) {
+      window.location.href = defaultUrl;
+    }
+  }, []);
+
   function update() {
     if (scrollY.get() < scrollY.getPrevious()) {
       setHidden(false);
@@ -57,6 +64,10 @@ const Navbar = () => {
   }
 
   useMotionValueEvent(scrollY, "change", () => update());
+
+  toggle
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "");
 
   const mobileNav = () => {
     return (

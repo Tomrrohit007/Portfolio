@@ -146,7 +146,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary h-[100px] md:h-[200px]  py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
           <m.button
@@ -154,7 +154,7 @@ const Contact = () => {
             whileTap={{ scale: 1.1, backgroundColor: "#0d011f" }}
             className={`${
               loading ? "bg-[#0d011f]" : "bg-tertiary"
-            } py-3 px-8 outline-none w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
+            } py-3 px-8 outline-none w-full md:w-fit button text-white font-bold shadow-md shadow-primary rounded-xl`}
           >
             {loading ? "Sending" : "Send"}
           </m.button>

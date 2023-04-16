@@ -7,8 +7,8 @@ import Works from "./components/Works";
 import Feedbacks from "./components/Feedbacks";
 import Contact from "./components/Contact";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
 import Footer from "./components/Footer";
+import "./index.css";
 
 function App() {
   return (
