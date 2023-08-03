@@ -16,7 +16,7 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "typescript",
         color: "green-text-gradient",
       },
       {
@@ -29,25 +29,26 @@ const projects = [
     live_url: "https://rohit-hoo-bank.netlify.app/",
   },
   {
-    name: "Job IT",
+    name: "The Wild Oasis",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Welcome to The Wild Oasis Admin Dashboard designed to provide an intuitive and efficient management interface for hotel administration.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "supabase",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "tanstackquery",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: "/assets/the_wild_oasis.png",
+    source_code_link: "https://github.com/Tomrrohit007/The_Wild_Oasis",
+    live_url: "https://rohit-the-wild-oasis.netlify.app",
   },
   {
     name: "Trip Guide",
@@ -69,6 +70,7 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/",
+    live_url: "http://localhost:3000",
   },
 ];
 
@@ -127,7 +129,7 @@ const Works = () => {
               whileInView="animate"
               viewport={{ once: true }}
               initial="hidden"
-              className="w-[358px]"
+              className="project-li w-[358px]"
               key={i}
             >
               <m.div className="bg-tertiary p-4 rounded-2xl sm:w-[340px] w-full h-[500px] flex flex-col justify-between py-6">
@@ -138,7 +140,18 @@ const Works = () => {
                       alt={each.name}
                       className="w-full h-full object-cover rounded-2xl"
                     />
-                    <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+                    <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-3">
+                      <a
+                        href={each?.live_url}
+                        className="icon w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/link.png"
+                          className="w-2/3 h-2/3 object-contain"
+                          alt=""
+                        />
+                      </a>
                       <a
                         href={each.source_code_link}
                         target="_blank"
